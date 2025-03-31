@@ -1,0 +1,146 @@
+[
+    {
+      "resourceType": "MedicationRequest",
+      "id": "RX001",
+      "encounter": {
+        "reference": "Encounter/V001"
+      },
+      "dosageInstruction": [
+        {
+          "text": "Take one tablet daily"
+        }
+      ]
+    },
+    {
+      "resourceType": "MedicationRequest",
+      "id": "RX002",
+      "encounter": {
+        "reference": "Encounter/V002"
+      },
+      "dosageInstruction": [
+        {
+          "text": "Apply ointment twice daily"
+        }
+      ]
+    },
+    {
+      "resourceType": "MedicationRequest",
+      "id": "RX003",
+      "encounter": {
+        "reference": "Encounter/V004"
+      },
+      "dosageInstruction": [
+        {
+          "text": "Blood pressure medication 5mg"
+        }
+      ]
+    },
+    {
+      "resourceType": "MedicationRequest",
+      "id": "RX004",
+      "encounter": {
+        "reference": "Encounter/V005"
+      },
+      "dosageInstruction": [
+        {
+          "text": "Vitamin supplement once daily"
+        }
+      ]
+    },
+    {
+      "resourceType": "MedicationRequest",
+      "id": "RX005",
+      "encounter": {
+        "reference": "Encounter/V006"
+      },
+      "dosageInstruction": [
+        {
+          "text": "Antibiotic course for 7 days"
+        }
+      ]
+    },
+    {
+      "resourceType": "MedicationRequest",
+      "id": "RX006",
+      "encounter": {
+        "reference": "Encounter/V007"
+      },
+      "dosageInstruction": [
+        {
+          "text": "Pain reliever as needed"
+        }
+      ]
+    },
+    {
+      "resourceType": "MedicationRequest",
+      "id": "RX007",
+      "encounter": {
+        "reference": "Encounter/V008"
+      },
+      "dosageInstruction": [
+        {
+          "text": "Specialist recommended medication"
+        }
+      ]
+    },
+    {
+      "resourceType": "MedicationRequest",
+      "id": "RX008",
+      "encounter": {
+        "reference": "Encounter/V010"
+      },
+      "dosageInstruction": [
+        {
+          "text": "Dental pain medication"
+        }
+      ]
+    },
+    {
+      "resourceType": "MedicationRequest",
+      "id": "RX009",
+      "encounter": {
+        "reference": "Encounter/V011"
+      },
+      "dosageInstruction": [
+        {
+          "text": "Eye drops two times daily"
+        }
+      ]
+    },
+    {
+      "resourceType": "MedicationRequest",
+      "id": "RX010",
+      "encounter": {
+        "reference": "Encounter/V013"
+      },
+      "dosageInstruction": [
+        {
+          "text": "Pediatric dosage: syrup"
+        }
+      ]
+    },
+    {
+      "resourceType": "MedicationRequest",
+      "id": "RX011",
+      "encounter": {
+        "reference": "Encounter/V014"
+      },
+      "dosageInstruction": [
+        {
+          "text": "Joint supplement"
+        }
+      ]
+    },
+    {
+      "resourceType": "MedicationRequest",
+      "id": "RX012",
+      "encounter": {
+        "reference": "Encounter/V015"
+      },
+      "dosageInstruction": [
+        {
+          "text": "Physical therapy exercise"
+        }
+      ]
+    }
+  ]

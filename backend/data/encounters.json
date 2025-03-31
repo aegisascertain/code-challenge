@@ -1,0 +1,137 @@
+[
+    {
+      "resourceType": "Encounter",
+      "id": "V001",
+      "status": "finished",
+      "subject": {
+        "reference": "Patient/P001"
+      },
+      "description": "General checkup"
+    },
+    {
+      "resourceType": "Encounter",
+      "id": "V002",
+      "status": "finished",
+      "subject": {
+        "reference": "Patient/P001"
+      },
+      "description": "Follow-up consultation"
+    },
+    {
+      "resourceType": "Encounter",
+      "id": "V003",
+      "status": "finished",
+      "subject": {
+        "reference": "Patient/P002"
+      },
+      "description": "Initial consultation"
+    },
+    {
+      "resourceType": "Encounter",
+      "id": "V004",
+      "status": "finished",
+      "subject": {
+        "reference": "Patient/P003"
+      },
+      "description": "Routine examination"
+    },
+    {
+      "resourceType": "Encounter",
+      "id": "V005",
+      "status": "finished",
+      "subject": {
+        "reference": "Patient/P003"
+      },
+      "description": "Lab test visit"
+    },
+    {
+      "resourceType": "Encounter",
+      "id": "V006",
+      "status": "finished",
+      "subject": {
+        "reference": "Patient/P004"
+      },
+      "description": "Emergency visit"
+    },
+    {
+      "resourceType": "Encounter",
+      "id": "V007",
+      "status": "finished",
+      "subject": {
+        "reference": "Patient/P004"
+      },
+      "description": "Post-treatment follow-up"
+    },
+    {
+      "resourceType": "Encounter",
+      "id": "V008",
+      "status": "finished",
+      "subject": {
+        "reference": "Patient/P005"
+      },
+      "description": "Specialist referral"
+    },
+    {
+      "resourceType": "Encounter",
+      "id": "V009",
+      "status": "finished",
+      "subject": {
+        "reference": "Patient/P006"
+      },
+      "description": "Annual physical"
+    },
+    {
+      "resourceType": "Encounter",
+      "id": "V010",
+      "status": "finished",
+      "subject": {
+        "reference": "Patient/P007"
+      },
+      "description": "Dental check"
+    },
+    {
+      "resourceType": "Encounter",
+      "id": "V011",
+      "status": "finished",
+      "subject": {
+        "reference": "Patient/P007"
+      },
+      "description": "Vision test"
+    },
+    {
+      "resourceType": "Encounter",
+      "id": "V012",
+      "status": "finished",
+      "subject": {
+        "reference": "Patient/P008"
+      },
+      "description": "Skin consultation"
+    },
+    {
+      "resourceType": "Encounter",
+      "id": "V013",
+      "status": "finished",
+      "subject": {
+        "reference": "Patient/P009"
+      },
+      "description": "Pediatric check"
+    },
+    {
+      "resourceType": "Encounter",
+      "id": "V014",
+      "status": "finished",
+      "subject": {
+        "reference": "Patient/P010"
+      },
+      "description": "Orthopedic consultation"
+    },
+    {
+      "resourceType": "Encounter",
+      "id": "V015",
+      "status": "finished",
+      "subject": {
+        "reference": "Patient/P010"
+      },
+      "description": "Rehabilitation session"
+    }
+  ]

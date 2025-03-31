@@ -16,8 +16,13 @@ services:
       - api
 
   api:
-    # This is a placeholder for your API service
-    # To be defined when backend is set up
-    image: nginx:alpine
+    build:
+      context: ./backend
+      dockerfile: Dockerfile
     ports:
-      - "8000:80" 
+      - "8000:8000"
+    volumes:
+      - ./backend:/app
+    environment:
+      - DATA_DIR=/app/data
+    restart: unless-stopped 
