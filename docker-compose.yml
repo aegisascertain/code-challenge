@@ -1,0 +1,23 @@
+services:
+  frontend:
+    build:
+      context: ./frontend
+      dockerfile: Dockerfile
+    ports:
+      - "3000:80"
+    volumes:
+      - ./frontend:/app
+      - /app/node_modules
+    env_file:
+      - ./frontend/.env
+    environment:
+      - NODE_ENV=development
+    depends_on:
+      - api
+
+  api:
+    # This is a placeholder for your API service
+    # To be defined when backend is set up
+    image: nginx:alpine
+    ports:
+      - "8000:80" 
