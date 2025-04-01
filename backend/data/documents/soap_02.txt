@@ -1,0 +1,37 @@
+SOAP Note - Encounter Date: 2024-03-15 (Follow-Up Visit)
+Patient: patient--001
+S: Pt returns for follow-up on cholesterol, as planned in prior physical. Labs drawn on previous encounter indicating elevated LDL (165 mg/dL), mildly reduced HDL (38 mg/dL), triglycerides at upper normal limits (145 mg/dL). Pt admits difficulty adhering strictly to suggested dietary changes, but did slightly increase physical activity. Denies chest discomfort, palpitations, SOB, orthopnea, or PND.
+
+O:
+Vitals today:
+
+BP: 134/84 mmHg
+HR: 78 bpm
+Weight stable at 192 lbs
+Physical Exam unchanged from last assessment, no new findings.
+
+Review of labs (drawn on 2023-10-26):
+
+LDL cholesterol elevated at 165 mg/dL (desirable <100 mg/dL)
+HDL low at 38 mg/dL (desired >40 mg/dL)
+Triglycerides borderline at 145 mg/dL (normal <150 mg/dL)
+No indications of DM, liver or kidney dysfunction observed on CMP results.
+
+A:
+
+Hyperlipidemia
+Overweight status, decreased HDL
+Stable vitals, no acute distress or cardiovascular symptoms
+P:
+
+Initiate atorvastatin 20 mg PO daily qHS; discussed risks/benefits with pt
+Pt advised again regarding diet and lifestyle modifications
+Recommend continued aerobic exercise (at least 4 sessions/week, moderate intensity, 30-40 mins per session)
+Repeat lipid panel, LFTs after 3 months of statin therapy initiation
+Return for follow-up in 3 months or earlier if any adverse reaction occurs.
+Prescription Note:
+
+Atorvastatin 20mg tab Disp: #90 (ninety) tabs Sig: 1 tablet PO daily at bedtime Refills: 3
+Signed:
+Dr. Mark Reynolds, MD
+Internal Medicine

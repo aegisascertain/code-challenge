@@ -46,6 +46,32 @@ FastAPI automatically generates documentation for the API:
 - Swagger UI: `http://localhost:8000/docs`
 - ReDoc: `http://localhost:8000/redoc`
 
+## Data Files
+
+### FHIR Files
+
+The `data` directory contains several FHIR JSON files that represent healthcare data in the FHIR (Fast Healthcare Interoperability Resources) standard format:
+
+- `patients.json`: Contains patient demographic information including identifiers, names, gender, birth dates, and contact information.
+- `encounters.json`: Documents clinical encounters between patients and healthcare providers, including dates, types, and reasons for visits.
+- `medication_requests.json`: Records medication prescriptions, including dosage instructions and related encounters.
+
+
+### Document Files
+
+The `data/documents` directory contains SOAP notes for patient encounters. These are text files with a structured format following the SOAP methodology (Subjective, Objective, Assessment, Plan).
+
+These documents are linked to patients in the `data/patients.json` file.
+
+SOAP notes typically contain:
+- Patient identification information
+- Encounter date
+- Subjective information (patient's description of symptoms)
+- Objective findings (vital signs, examination results)
+- Assessment (diagnoses)
+- Plan (treatment, medications, follow-up instructions)
+
+
 ## FHIR Data Structure
 
 The API works with the following FHIR resources:
@@ -96,7 +122,3 @@ The API works with the following FHIR resources:
   ]
 }
 ```
-
-## CoderPad Exercise
-
-For the CoderPad portion of this exercise, check the `coderpad_sample.py` file which contains a simplified version of the core functionality with stub implementations for candidates to complete. 
