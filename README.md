@@ -1,71 +1,44 @@
 # Ascertain Code Challenge
 
-A modern web application built for an interview code challenge using React, TypeScript, and a suite of quality tools.
+This repository contains Ascertain's technical assessment.
 
-## Technology Stack
 
-- **Frontend**: React 19 with TypeScript
-- **Build Tool**: Vite for fast development and building
-- **UI Components**: Mantine UI
-- **Data Fetching**: React Query
-- **Routing**: React Router
-- **Testing**: Vitest, Testing Library, and Storybook
-- **Styling**: Tailwind CSS with Mantine integration
-- **Code Quality**: ESLint, TypeScript, and Prettier
-- **Deployment**: Docker containerization
+## Project Structure
+
+- `/frontend` - React client application
+- `/backend` - FastAPI server application
+
 
 ## Getting Started
 
-### Prerequisites
+You have two options for setting up this project:
 
-- Node.js (v20+)
-- pnpm (v9+)
-- Docker and Docker Compose (for containerized deployment)
+### Option 1: Individual Setup
 
-### Installation
+Each component has its own detailed setup instructions:
 
-1. Install dependencies:
-   ```bash
-   cd frontend
-   pnpm install
-   ```
+- See [`frontend/README.md`](frontend/README.md) for React application setup
+- See [`backend/README.md`](backend/README.md) for FastAPI service setup
 
-2. Set up environment variables:
-   ```bash
-   cp .env.example .env
-   ```
+These files contain specific requirements, available scripts, and component-specific documentation.
 
-3. Start the development server:
-   ```bash
-   pnpm dev
-   ```
+### Option 2: Docker Setup
 
-## Available Scripts
+```bash
+docker-compose up -d
+```
 
-- `pnpm dev` - Start the development server
-- `pnpm build` - Build for production
-- `pnpm preview` - Preview the production build
-- `pnpm test` - Run tests
-- `pnpm test:watch` - Run tests in watch mode
-- `pnpm test:coverage` - Run tests with coverage
-- `pnpm lint` - Run ESLint
-- `pnpm format` - Format code with Prettier
-- `pnpm storybook` - Start Storybook for component development
-- `pnpm build-storybook` - Build Storybook for deployment
+This will start both frontend and backend services:
+- Frontend: http://localhost:3000
+- Backend: http://localhost:8000
+- API Documentation: http://localhost:8000/docs
 
-## Deployment
+## Technology Stack
 
-### Docker Deployment
+### Frontend
+- React 19 with TypeScript
+- Mantine UI and Tailwind CSS
 
-1. Build and start the containers:
-   ```bash
-   docker-compose up -d
-   ```
-
-2. Access the application at: `http://localhost:3000`
-
-## Testing Strategy
-
-- Component tests with React Testing Library
-- Unit tests with Vitest
-- Component documentation and visual testing with Storybook 
+### Backend
+- FastAPI (Python)
+- FHIR healthcare data structure

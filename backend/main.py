@@ -3,6 +3,7 @@ from typing import Dict, List, Optional
 from fastapi import FastAPI, Query, HTTPException
 from pydantic import BaseModel
 import uvicorn
+from fastapi.middleware.cors import CORSMiddleware
 
 from fhir_utils import (
     load_patients_fhir,
@@ -18,6 +19,15 @@ app = FastAPI(
     title="FHIR API",
     description="An API for querying FHIR healthcare data",
     version="0.1.0",
+)
+
+# Add CORS middleware
+app.add_middleware(
+    CORSMiddleware,
+    allow_origins=["*"],
+    allow_credentials=True,
+    allow_methods=["*"],
+    allow_headers=["*"],
 )
 
 # Define data file paths - adjust if needed

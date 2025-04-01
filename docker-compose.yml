@@ -25,4 +25,4 @@ services:
       - ./backend:/app
     environment:
       - DATA_DIR=/app/data
-    restart: unless-stopped 
+    restart: unless-stopped

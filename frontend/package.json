@@ -13,7 +13,8 @@
     "test:coverage": "vitest run --coverage",
     "storybook": "storybook dev -p 6006",
     "build-storybook": "storybook build",
-    "format": "prettier --write \"src/**/*.{ts,tsx,js,jsx}\""
+    "format": "prettier --write \"src/**/*.{ts,tsx,js,jsx}\"",
+    "regen-api": "openapi-typescript http://localhost:8000/openapi.json -o ./src/queries/schema.d.ts"
   },
   "dependencies": {
     "@mantine/core": "^7.17.3",
@@ -48,6 +49,7 @@
     "eslint-plugin-storybook": "^0.12.0",
     "globals": "^15.15.0",
     "jsdom": "^26.0.0",
+    "openapi-typescript": "^7.6.1",
     "postcss": "^8.5.3",
     "prettier": "^3.5.3",
     "storybook": "^8.6.11",
