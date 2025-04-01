@@ -31,13 +31,9 @@ docker-compose up --build
 Once running, the following endpoints are available:
 
 - `GET /` - API root with welcome message
-- `GET /patients/` - Search patients by name and birth date
-  - Query parameters:
-    - `name`: Patient name (full or partial)
-    - `birthDate`: Patient birth date in YYYY-MM-DD format
-    - `threshold`: Minimum similarity threshold for name matching (default: 0.7)
-- `GET /patients/{patient_id}` - Get patient details including encounters and medication requests
-- `GET /encounters/` - Get all encounters
+- `GET /patients/` - Get all patients
+- `GET /patients/{patient_id}` - Get patient details by ID
+- `POST /fhir/push` - Push a FHIR resource to the FHIR server
 
 ## API Documentation
 
@@ -45,6 +41,32 @@ FastAPI automatically generates documentation for the API:
 
 - Swagger UI: `http://localhost:8000/docs`
 - ReDoc: `http://localhost:8000/redoc`
+
+## Data Files
+
+### FHIR Files
+
+The `data` directory contains several FHIR JSON files that represent healthcare data in the FHIR (Fast Healthcare Interoperability Resources) standard format:
+
+- `patients.json`: Contains patient demographic information including identifiers, names, gender, birth dates, and contact information.
+- `encounters.json`: Documents clinical encounters between patients and healthcare providers, including dates, types, and reasons for visits.
+- `medication_requests.json`: Records medication prescriptions, including dosage instructions and related encounters.
+
+
+### Document Files
+
+The `data/documents` directory contains SOAP notes for patient encounters. These are text files with a structured format following the SOAP methodology (Subjective, Objective, Assessment, Plan).
+
+These documents are linked to patients in the `data/patients.json` file.
+
+SOAP notes typically contain:
+- Patient identification information
+- Encounter date
+- Subjective information (patient's description of symptoms)
+- Objective findings (vital signs, examination results)
+- Assessment (diagnoses)
+- Plan (treatment, medications, follow-up instructions)
+
 
 ## FHIR Data Structure
 
@@ -55,11 +77,11 @@ The API works with the following FHIR resources:
 ```json
 {
   "resourceType": "Patient",
-  "id": "P001",
+  "id": "patient-001",
   "name": [
     {
-      "family": "Doe",
-      "given": ["John"]
+      "family": "Collins",
+      "given": ["Jonathan", "Michael"]
     }
   ],
   "birthDate": "1980-01-01"
@@ -71,10 +93,11 @@ The API works with the following FHIR resources:
 ```json
 {
   "resourceType": "Encounter",
-  "id": "V001",
+  "id": "encounter-001-2",
   "status": "finished",
   "subject": {
-    "reference": "Patient/P001"
+    "reference": "Patient/patient-001",
+    "display": "Jonathan Michael Collins"
   },
   "description": "General checkup"
 }
@@ -85,18 +108,64 @@ The API works with the following FHIR resources:
 ```json
 {
   "resourceType": "MedicationRequest",
-  "id": "RX001",
-  "encounter": {
-    "reference": "Encounter/V001"
+  "id": "medreq-001-1",
+  "status": "active",
+  "intent": "order",
+  "medicationCodeableConcept": {
+    "coding": [
+      {
+        "system": "http://www.nlm.nih.gov/research/umls/rxnorm",
+        "code": "8334",
+        "display": "Atorvastatin 20 MG Oral Tablet"
+      }
+    ],
+    "text": "Atorvastatin 20mg"
   },
+  "subject": {
+    "reference": "Patient/patient-001",
+    "display": "Jonathan Michael Collins"
+  },
+  "encounter": {
+    "reference": "Encounter/encounter-001-2"
+  },
+  "authoredOn": "2024-03-15T14:15:00-05:00",
+  "requester": {
+    "display": "Dr. Smith"
+  },
+  "reasonCode": [
+    {
+      "text": "High cholesterol management"
+    }
+  ],
   "dosageInstruction": [
     {
-      "text": "Take one tablet daily"
+      "text": "Take one tablet daily.",
+      "timing": {
+        "repeat": {
+          "frequency": 1,
+          "period": 1,
+          "periodUnit": "d"
+        }
+      },
+      "route": {
+        "coding": [
+          {
+            "system": "http://snomed.info/sct",
+            "code": "26643006",
+            "display": "Oral route"
+          }
+        ],
+        "text": "Oral"
+      },
+      "doseAndRate": [
+        {
+          "doseQuantity": {
+            "value": 20,
+            "unit": "mg"
+          }
+        }
+      ]
     }
   ]
 }
 ```
-
-## CoderPad Exercise
-
-For the CoderPad portion of this exercise, check the `coderpad_sample.py` file which contains a simplified version of the core functionality with stub implementations for candidates to complete. 

@@ -21,26 +21,6 @@ export interface paths {
     patch?: never;
     trace?: never;
   };
-  '/patients/': {
-    parameters: {
-      query?: never;
-      header?: never;
-      path?: never;
-      cookie?: never;
-    };
-    /**
-     * Search Patients
-     * @description Search for patients by name and birth date using fuzzy matching.
-     */
-    get: operations['search_patients_patients__get'];
-    put?: never;
-    post?: never;
-    delete?: never;
-    options?: never;
-    head?: never;
-    patch?: never;
-    trace?: never;
-  };
   '/patients/{patient_id}': {
     parameters: {
       query?: never;
@@ -61,7 +41,7 @@ export interface paths {
     patch?: never;
     trace?: never;
   };
-  '/encounters/': {
+  '/patients/': {
     parameters: {
       query?: never;
       header?: never;
@@ -69,12 +49,34 @@ export interface paths {
       cookie?: never;
     };
     /**
-     * List Encounters
-     * @description Get all encounters.
+     * List Patients
+     * @description Get all patients.
      */
-    get: operations['list_encounters_encounters__get'];
+    get: operations['list_patients_patients__get'];
     put?: never;
     post?: never;
+    delete?: never;
+    options?: never;
+    head?: never;
+    patch?: never;
+    trace?: never;
+  };
+  '/fhir/push': {
+    parameters: {
+      query?: never;
+      header?: never;
+      path?: never;
+      cookie?: never;
+    };
+    get?: never;
+    put?: never;
+    /**
+     * Push Patient To Fhir
+     * @description Push a patient record to the FHIR server.
+     *
+     *     This endpoint accepts a FHIR resource and pushes it to the configured FHIR server.
+     */
+    post: operations['push_patient_to_fhir_fhir_push_post'];
     delete?: never;
     options?: never;
     head?: never;
@@ -85,45 +87,17 @@ export interface paths {
 export type webhooks = Record<string, never>;
 export interface components {
   schemas: {
-    /** Encounter */
-    Encounter: {
-      /** Resourcetype */
-      resourceType: string;
-      /** Id */
-      id: string;
-      /** Status */
-      status: string;
-      /** Subject */
-      subject: {
+    /** FHIRResource */
+    FHIRResource: {
+      /** Resource */
+      resource: {
         [key: string]: unknown;
       };
-      /** Description */
-      description: string;
-    };
-    /** EncounterResponse */
-    EncounterResponse: {
-      /** Encounters */
-      encounters: components['schemas']['Encounter'][];
     };
     /** HTTPValidationError */
     HTTPValidationError: {
       /** Detail */
       detail?: components['schemas']['ValidationError'][];
-    };
-    /** MedicationRequest */
-    MedicationRequest: {
-      /** Resourcetype */
-      resourceType: string;
-      /** Id */
-      id: string;
-      /** Encounter */
-      encounter: {
-        [key: string]: unknown;
-      };
-      /** Dosageinstruction */
-      dosageInstruction: {
-        [key: string]: unknown;
-      }[];
     };
     /** Patient */
     Patient: {
@@ -131,25 +105,13 @@ export interface components {
       resourceType: string;
       /** Id */
       id: string;
-      /** Name */
-      name: {
-        [key: string]: unknown;
-      }[];
-      /** Birthdate */
-      birthDate: string;
-    };
-    /** PatientDetailsResponse */
-    PatientDetailsResponse: {
-      patient: components['schemas']['Patient'];
-      /** Encounters */
-      encounters: components['schemas']['Encounter'][];
-      /** Medicationrequests */
-      medicationRequests: components['schemas']['MedicationRequest'][];
-    };
-    /** PatientResponse */
-    PatientResponse: {
-      /** Patients */
-      patients: components['schemas']['Patient'][];
+      /** Full Name */
+      full_name: string;
+      /**
+       * Birth Date
+       * Format: date
+       */
+      birth_date: string;
     };
     /** ValidationError */
     ValidationError: {
@@ -189,42 +151,6 @@ export interface operations {
       };
     };
   };
-  search_patients_patients__get: {
-    parameters: {
-      query?: {
-        /** @description Patient name (full or partial) */
-        name?: string;
-        /** @description Patient birth date (YYYY-MM-DD) */
-        birthDate?: string;
-        /** @description Minimum similarity threshold for name matching */
-        threshold?: number;
-      };
-      header?: never;
-      path?: never;
-      cookie?: never;
-    };
-    requestBody?: never;
-    responses: {
-      /** @description Successful Response */
-      200: {
-        headers: {
-          [name: string]: unknown;
-        };
-        content: {
-          'application/json': components['schemas']['PatientResponse'];
-        };
-      };
-      /** @description Validation Error */
-      422: {
-        headers: {
-          [name: string]: unknown;
-        };
-        content: {
-          'application/json': components['schemas']['HTTPValidationError'];
-        };
-      };
-    };
-  };
   get_patient_details_patients__patient_id__get: {
     parameters: {
       query?: never;
@@ -242,7 +168,7 @@ export interface operations {
           [name: string]: unknown;
         };
         content: {
-          'application/json': components['schemas']['PatientDetailsResponse'];
+          'application/json': components['schemas']['Patient'];
         };
       };
       /** @description Validation Error */
@@ -256,7 +182,7 @@ export interface operations {
       };
     };
   };
-  list_encounters_encounters__get: {
+  list_patients_patients__get: {
     parameters: {
       query?: never;
       header?: never;
@@ -271,7 +197,40 @@ export interface operations {
           [name: string]: unknown;
         };
         content: {
-          'application/json': components['schemas']['EncounterResponse'];
+          'application/json': components['schemas']['Patient'][];
+        };
+      };
+    };
+  };
+  push_patient_to_fhir_fhir_push_post: {
+    parameters: {
+      query?: never;
+      header?: never;
+      path?: never;
+      cookie?: never;
+    };
+    requestBody: {
+      content: {
+        'application/json': components['schemas']['FHIRResource'];
+      };
+    };
+    responses: {
+      /** @description Successful Response */
+      200: {
+        headers: {
+          [name: string]: unknown;
+        };
+        content: {
+          'application/json': unknown;
+        };
+      };
+      /** @description Validation Error */
+      422: {
+        headers: {
+          [name: string]: unknown;
+        };
+        content: {
+          'application/json': components['schemas']['HTTPValidationError'];
         };
       };
     };

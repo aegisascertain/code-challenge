@@ -1,0 +1,34 @@
+SOAP Note - Encounter Date: 2023-12-28
+Patient: Emily G. Williams. DOB 1996-12-02
+S:
+Pt presents for scheduled post-surgical follow-up s/p arthroscopic surgery of left knee (meniscal repair), performed approximately 2 weeks ago. Reports surgical site discomfort significantly improved. Denies fever, chills, discharge, redness, or swelling. Pt has begun gentle ROM exercises as instructed but still experiences mild discomfort with excessive flexion or prolonged standing. Pain rates 2-3/10 with activity, controlled well with ibuprofen PRN.
+
+O:
+Vitals:
+
+BP: 118/74 mmHg
+HR: 70 bpm
+Temp: 98.4 °F
+RR: 14 breaths/min
+General: Alert, oriented, pleasant, NAD
+Left knee: Arthroscopic portals healing well, sutures intact, clean and dry, no sign of infection, minimal swelling noted. Mild tenderness to palpation around portal sites. ROM 0-100 degrees active flexion without significant discomfort. Mild stiffness at end-range noted. Strength 4/5 due to mild guarding. Neurovascularly intact distally.
+
+A:
+
+Status-post left knee arthroscopic meniscal repair, healing well
+Expected mild discomfort, consistent with post-op recovery period
+P:
+
+Continue ibuprofen 400mg-600mg PO q6-8h PRN for pain/discomfort
+Remove sutures today.
+Cleared to gradually increase ROM and begin physical therapy program (referral given, expected start in about 2-4 weeks).
+Advised on elevation, ice, and continued gentle mobility exercises. Avoid strenuous/high-impact activities until cleared at next follow-up.
+Prescription:
+
+Ibuprofen 600 mg tablet
+Dispense: #30 (thirty) tablets
+Sig: Take 1 tab PO q6-8 hours PRN knee pain/inflammation
+Refills: 1
+Signed:
+Dr. Sarah Martinez, MD
+Orthopedic Surgery
