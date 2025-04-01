@@ -1,0 +1,1458 @@
+[
+  {
+    "resourceType": "MedicationRequest",
+    "id": "medreq-001-1",
+    "status": "active",
+    "intent": "order",
+    "medicationCodeableConcept": {
+      "coding": [
+        {
+          "system": "http://www.nlm.nih.gov/research/umls/rxnorm",
+          "code": "8334",
+          "display": "Atorvastatin 20 MG Oral Tablet"
+        }
+      ],
+      "text": "Atorvastatin 20mg"
+    },
+    "subject": {
+      "reference": "Patient/patient-001",
+      "display": "Jonathan Michael Collins"
+    },
+    "encounter": {
+      "reference": "Encounter/encounter-001-2"
+    },
+    "authoredOn": "2024-03-15T14:15:00-05:00",
+    "requester": {
+      "display": "Dr. Smith"
+    },
+    "reasonCode": [
+      {
+        "text": "High cholesterol management"
+      }
+    ],
+    "dosageInstruction": [
+      {
+        "text": "Take one tablet daily.",
+        "timing": {
+          "repeat": {
+            "frequency": 1,
+            "period": 1,
+            "periodUnit": "d"
+          }
+        },
+        "route": {
+          "coding": [
+            {
+              "system": "http://snomed.info/sct",
+              "code": "26643006",
+              "display": "Oral route"
+            }
+          ],
+          "text": "Oral"
+        },
+        "doseAndRate": [
+          {
+            "doseQuantity": {
+              "value": 20,
+              "unit": "mg"
+            }
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "resourceType": "MedicationRequest",
+    "id": "medreq-002-1",
+    "status": "active",
+    "intent": "order",
+    "medicationCodeableConcept": {
+      "coding": [
+        {
+          "system": "http://www.nlm.nih.gov/research/umls/rxnorm",
+          "code": "6835",
+          "display": "Hydrocortisone 1 % Topical Cream"
+        }
+      ],
+      "text": "Hydrocortisone 1% cream"
+    },
+    "subject": {
+      "reference": "Patient/patient-002",
+      "display": "Emma Hartman"
+    },
+    "encounter": {
+      "reference": "Encounter/encounter-002-1"
+    },
+    "authoredOn": "2023-11-02T14:45:00-06:00",
+    "requester": {
+      "display": "Dr. Lee"
+    },
+    "reasonCode": [
+      {
+        "text": "Treatment of skin rash"
+      }
+    ],
+    "dosageInstruction": [
+      {
+        "text": "Apply a thin layer to affected area twice daily.",
+        "timing": {
+          "repeat": {
+            "frequency": 2,
+            "period": 1,
+            "periodUnit": "d"
+          }
+        },
+        "route": {
+          "coding": [
+            {
+              "system": "http://snomed.info/sct",
+              "code": "26643006",
+              "display": "Topical route"
+            }
+          ],
+          "text": "Topical"
+        }
+      }
+    ]
+  },
+  {
+    "resourceType": "MedicationRequest",
+    "id": "medreq-002-2",
+    "status": "active",
+    "intent": "order",
+    "medicationCodeableConcept": {
+      "coding": [
+        {
+          "system": "http://www.nlm.nih.gov/research/umls/rxnorm",
+          "code": "10065",
+          "display": "Cetirizine 10 MG Oral Tablet"
+        }
+      ],
+      "text": "Cetirizine 10mg"
+    },
+    "subject": {
+      "reference": "Patient/patient-002",
+      "display": "Emma Hartman"
+    },
+    "encounter": {
+      "reference": "Encounter/encounter-002-2"
+    },
+    "authoredOn": "2024-04-20T11:15:00-06:00",
+    "requester": {
+      "display": "Dr. Lee"
+    },
+    "reasonCode": [
+      {
+        "text": "Allergy symptom relief"
+      }
+    ],
+    "dosageInstruction": [
+      {
+        "text": "Take one tablet daily as needed.",
+        "timing": {
+          "repeat": {
+            "frequency": 1,
+            "period": 1,
+            "periodUnit": "d"
+          }
+        },
+        "route": {
+          "coding": [
+            {
+              "system": "http://snomed.info/sct",
+              "code": "26643006",
+              "display": "Oral route"
+            }
+          ],
+          "text": "Oral"
+        },
+        "doseAndRate": [
+          {
+            "doseQuantity": {
+              "value": 10,
+              "unit": "mg"
+            }
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "resourceType": "MedicationRequest",
+    "id": "medreq-003-1",
+    "status": "active",
+    "intent": "order",
+    "medicationCodeableConcept": {
+      "coding": [
+        {
+          "system": "http://www.nlm.nih.gov/research/umls/rxnorm",
+          "code": "2160",
+          "display": "Ibuprofen 200 MG Oral Tablet"
+        }
+      ],
+      "text": "Ibuprofen 200mg"
+    },
+    "subject": {
+      "reference": "Patient/patient-003",
+      "display": "Luca Rossi"
+    },
+    "encounter": {
+      "reference": "Encounter/encounter-003-1"
+    },
+    "authoredOn": "2023-11-09T09:30:00-05:00",
+    "requester": {
+      "display": "Dr. Garcia"
+    },
+    "reasonCode": [
+      {
+        "text": "Pain relief for sprained ankle"
+      }
+    ],
+    "dosageInstruction": [
+      {
+        "text": "Take one tablet every 6-8 hours as needed for pain.",
+        "timing": {
+          "repeat": {
+            "frequency": 1,
+            "period": 6,
+            "periodUnit": "h"
+          }
+        },
+        "route": {
+          "coding": [
+            {
+              "system": "http://snomed.info/sct",
+              "code": "26643006",
+              "display": "Oral route"
+            }
+          ],
+          "text": "Oral"
+        },
+        "doseAndRate": [
+          {
+            "doseQuantity": {
+              "value": 200,
+              "unit": "mg"
+            }
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "resourceType": "MedicationRequest",
+    "id": "medreq-006-1",
+    "status": "active",
+    "intent": "order",
+    "medicationCodeableConcept": {
+      "coding": [
+        {
+          "system": "http://www.nlm.nih.gov/research/umls/rxnorm",
+          "code": "3139",
+          "display": "Sumatriptan 50 MG Oral Tablet"
+        }
+      ],
+      "text": "Sumatriptan 50mg"
+    },
+    "subject": {
+      "reference": "Patient/patient-006",
+      "display": "Andrew Nguyen"
+    },
+    "encounter": {
+      "reference": "Encounter/encounter-006-1"
+    },
+    "authoredOn": "2023-11-30T15:45:00-08:00",
+    "requester": {
+      "display": "Dr. Patel"
+    },
+    "reasonCode": [
+      {
+        "text": "Treatment of chronic headaches"
+      }
+    ],
+    "dosageInstruction": [
+      {
+        "text": "Take one tablet at the onset of headache. May repeat once if needed after 2 hours.",
+        "timing": {
+          "repeat": {
+            "frequency": 1,
+            "period": 2,
+            "periodUnit": "h"
+          }
+        },
+        "route": {
+          "coding": [
+            {
+              "system": "http://snomed.info/sct",
+              "code": "26643006",
+              "display": "Oral route"
+            }
+          ],
+          "text": "Oral"
+        },
+        "doseAndRate": [
+          {
+            "doseQuantity": {
+              "value": 50,
+              "unit": "mg"
+            }
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "resourceType": "MedicationRequest",
+    "id": "medreq-007-1",
+    "status": "active",
+    "intent": "order",
+    "medicationCodeableConcept": {
+      "coding": [
+        {
+          "system": "http://www.nlm.nih.gov/research/umls/rxnorm",
+          "code": "7370",
+          "display": "Prenatal Vitamin with Iron Oral Tablet"
+        }
+      ],
+      "text": "Prenatal vitamins with iron"
+    },
+    "subject": {
+      "reference": "Patient/patient-007",
+      "display": "Carla Maria Pereira"
+    },
+    "encounter": {
+      "reference": "Encounter/encounter-007-1"
+    },
+    "authoredOn": "2023-12-07T10:45:00-05:00",
+    "requester": {
+      "display": "Dr. Rodriguez"
+    },
+    "reasonCode": [
+      {
+        "text": "Prenatal vitamin supplementation"
+      }
+    ],
+    "dosageInstruction": [
+      {
+        "text": "Take one tablet daily.",
+        "timing": {
+          "repeat": {
+            "frequency": 1,
+            "period": 1,
+            "periodUnit": "d"
+          }
+        },
+        "route": {
+          "coding": [
+            {
+              "system": "http://snomed.info/sct",
+              "code": "26643006",
+              "display": "Oral route"
+            }
+          ],
+          "text": "Oral"
+        }
+      }
+    ]
+  },
+  {
+    "resourceType": "MedicationRequest",
+    "id": "medreq-009-1",
+    "status": "active",
+    "intent": "order",
+    "medicationCodeableConcept": {
+      "coding": [
+        {
+          "system": "http://www.nlm.nih.gov/research/umls/rxnorm",
+          "code": "6688",
+          "display": "Metformin 500 MG Oral Tablet"
+        }
+      ],
+      "text": "Metformin 500mg"
+    },
+    "subject": {
+      "reference": "Patient/patient-009",
+      "display": "Javier Alvarez"
+    },
+    "encounter": {
+      "reference": "Encounter/encounter-009-1"
+    },
+    "authoredOn": "2023-12-21T09:15:00-06:00",
+    "requester": {
+      "display": "Dr. Kim"
+    },
+    "reasonCode": [
+      {
+        "text": "Diabetes management"
+      }
+    ],
+    "dosageInstruction": [
+      {
+        "text": "Take one tablet twice daily with meals.",
+        "timing": {
+          "repeat": {
+            "frequency": 2,
+            "period": 1,
+            "periodUnit": "d"
+          }
+        },
+        "route": {
+          "coding": [
+            {
+              "system": "http://snomed.info/sct",
+              "code": "26643006",
+              "display": "Oral route"
+            }
+          ],
+          "text": "Oral"
+        },
+        "doseAndRate": [
+          {
+            "doseQuantity": {
+              "value": 500,
+              "unit": "mg"
+            }
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "resourceType": "MedicationRequest",
+    "id": "medreq-010-1",
+    "status": "active",
+    "intent": "order",
+    "medicationCodeableConcept": {
+      "coding": [
+        {
+          "system": "http://www.nlm.nih.gov/research/umls/rxnorm",
+          "code": "197170",
+          "display": "Tramadol 50 MG Oral Tablet"
+        }
+      ],
+      "text": "Tramadol 50mg"
+    },
+    "subject": {
+      "reference": "Patient/patient-010",
+      "display": "Emily Grace Williams"
+    },
+    "encounter": {
+      "reference": "Encounter/encounter-010-1"
+    },
+    "authoredOn": "2023-12-28T11:45:00-08:00",
+    "requester": {
+      "display": "Dr. Chen"
+    },
+    "reasonCode": [
+      {
+        "text": "Post-surgical pain management"
+      }
+    ],
+    "dosageInstruction": [
+      {
+        "text": "Take one tablet every 4-6 hours as needed for pain.",
+        "timing": {
+          "repeat": {
+            "frequency": 1,
+            "period": 4,
+            "periodUnit": "h"
+          }
+        },
+        "route": {
+          "coding": [
+            {
+              "system": "http://snomed.info/sct",
+              "code": "26643006",
+              "display": "Oral route"
+            }
+          ],
+          "text": "Oral"
+        },
+        "doseAndRate": [
+          {
+            "doseQuantity": {
+              "value": 50,
+              "unit": "mg"
+            }
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "resourceType": "MedicationRequest",
+    "id": "medreq-015-1",
+    "status": "active",
+    "intent": "order",
+    "medicationCodeableConcept": {
+      "coding": [
+        {
+          "system": "http://www.nlm.nih.gov/research/umls/rxnorm",
+          "code": "3139",
+          "display": "Sumatriptan 50 MG Oral Tablet"
+        }
+      ],
+      "text": "Sumatriptan 50mg"
+    },
+    "subject": {
+      "reference": "Patient/patient-015",
+      "display": "Isabelle Dubois"
+    },
+    "encounter": {
+      "reference": "Encounter/encounter-015-2"
+    },
+    "authoredOn": "2024-07-25T13:15:00-06:00",
+    "requester": {
+      "display": "Dr. Dubois"
+    },
+    "reasonCode": [
+      {
+        "text": "Chronic migraine management"
+      }
+    ],
+    "dosageInstruction": [
+      {
+        "text": "Take one tablet at the onset of migraine. May repeat once if needed after 2 hours.",
+        "timing": {
+          "repeat": {
+            "frequency": 1,
+            "period": 2,
+            "periodUnit": "h"
+          }
+        },
+        "route": {
+          "coding": [
+            {
+              "system": "http://snomed.info/sct",
+              "code": "26643006",
+              "display": "Oral route"
+            }
+          ],
+          "text": "Oral"
+        },
+        "doseAndRate": [
+          {
+            "doseQuantity": {
+              "value": 50,
+              "unit": "mg"
+            }
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "resourceType": "MedicationRequest",
+    "id": "medreq-020-1",
+    "status": "active",
+    "intent": "order",
+    "medicationCodeableConcept": {
+      "coding": [
+        {
+          "system": "http://www.nlm.nih.gov/research/umls/rxnorm",
+          "code": "2525",
+          "display": "Sertraline 50 MG Oral Tablet"
+        }
+      ],
+      "text": "Sertraline 50mg"
+    },
+    "subject": {
+      "reference": "Patient/patient-020",
+      "display": "Mei Chen"
+    },
+    "encounter": {
+      "reference": "Encounter/encounter-020-2"
+    },
+    "authoredOn": "2024-08-15T15:15:00-05:00",
+    "requester": {
+      "display": "Dr. Kim"
+    },
+    "reasonCode": [
+      {
+        "text": "Treatment of depression"
+      }
+    ],
+    "dosageInstruction": [
+      {
+        "text": "Take one tablet daily in the morning.",
+        "timing": {
+          "repeat": {
+            "frequency": 1,
+            "period": 1,
+            "periodUnit": "d"
+          }
+        },
+        "route": {
+          "coding": [
+            {
+              "system": "http://snomed.info/sct",
+              "code": "26643006",
+              "display": "Oral route"
+            }
+          ],
+          "text": "Oral"
+        },
+        "doseAndRate": [
+          {
+            "doseQuantity": {
+              "value": 50,
+              "unit": "mg"
+            }
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "resourceType": "MedicationRequest",
+    "id": "medreq-030-1",
+    "status": "active",
+    "intent": "order",
+    "medicationCodeableConcept": {
+      "coding": [
+        {
+          "system": "http://www.nlm.nih.gov/research/umls/rxnorm",
+          "code": "3535",
+          "display": "Estradiol 1 MG Oral Tablet"
+        }
+      ],
+      "text": "Estradiol 1mg"
+    },
+    "subject": {
+      "reference": "Patient/patient-030",
+      "display": "Ella Renee Gallagher"
+    },
+    "encounter": {
+      "reference": "Encounter/encounter-030-2"
+    },
+    "authoredOn": "2024-10-10T14:15:00-05:00",
+    "requester": {
+      "display": "Dr. Smith"
+    },
+    "reasonCode": [
+      {
+        "text": "Hormone replacement therapy"
+      }
+    ],
+    "dosageInstruction": [
+      {
+        "text": "Take one tablet daily.",
+        "timing": {
+          "repeat": {
+            "frequency": 1,
+            "period": 1,
+            "periodUnit": "d"
+          }
+        },
+        "route": {
+          "coding": [
+            {
+              "system": "http://snomed.info/sct",
+              "code": "26643006",
+              "display": "Oral route"
+            }
+          ],
+          "text": "Oral"
+        },
+        "doseAndRate": [
+          {
+            "doseQuantity": {
+              "value": 1,
+              "unit": "mg"
+            }
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "resourceType": "MedicationRequest",
+    "id": "medreq-011-1",
+    "status": "active",
+    "intent": "order",
+    "medicationCodeableConcept": {
+      "coding": [
+        {
+          "system": "http://www.nlm.nih.gov/research/umls/rxnorm",
+          "code": "8334",
+          "display": "Atorvastatin 20 MG Oral Tablet"
+        }
+      ],
+      "text": "Atorvastatin 20mg"
+    },
+    "subject": {
+      "reference": "Patient/patient-011",
+      "display": "Christine Lee"
+    },
+    "encounter": {
+      "reference": "Encounter/encounter-011-1"
+    },
+    "authoredOn": "2024-01-04T14:00:00-08:00",
+    "requester": {
+      "display": "Dr. Kim"
+    },
+    "reasonCode": [
+      {
+        "text": "Management of hyperlipidemia"
+      }
+    ],
+    "dosageInstruction": [
+      {
+        "text": "Take one tablet daily at bedtime.",
+        "timing": {
+          "repeat": {
+            "frequency": 1,
+            "period": 1,
+            "periodUnit": "d"
+          }
+        },
+        "route": {
+          "coding": [
+            {
+              "system": "http://snomed.info/sct",
+              "code": "26643006",
+              "display": "Oral route"
+            }
+          ],
+          "text": "Oral"
+        },
+        "doseAndRate": [
+          {
+            "doseQuantity": {
+              "value": 20,
+              "unit": "mg"
+            }
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "resourceType": "MedicationRequest",
+    "id": "medreq-012-1",
+    "status": "active",
+    "intent": "order",
+    "medicationCodeableConcept": {
+      "coding": [
+        {
+          "system": "http://www.nlm.nih.gov/research/umls/rxnorm",
+          "code": "6688",
+          "display": "Metformin 500 MG Oral Tablet"
+        }
+      ],
+      "text": "Metformin 500mg"
+    },
+    "subject": {
+      "reference": "Patient/patient-012",
+      "display": "Pedro Martinez"
+    },
+    "encounter": {
+      "reference": "Encounter/encounter-012-1"
+    },
+    "authoredOn": "2024-01-11T10:30:00-06:00",
+    "requester": {
+      "display": "Dr. Garcia"
+    },
+    "reasonCode": [
+      {
+        "text": "Diabetes management"
+      }
+    ],
+    "dosageInstruction": [
+      {
+        "text": "Take one tablet twice daily with meals.",
+        "timing": {
+          "repeat": {
+            "frequency": 2,
+            "period": 1,
+            "periodUnit": "d"
+          }
+        },
+        "route": {
+          "coding": [
+            {
+              "system": "http://snomed.info/sct",
+              "code": "26643006",
+              "display": "Oral route"
+            }
+          ],
+          "text": "Oral"
+        },
+        "doseAndRate": [
+          {
+            "doseQuantity": {
+              "value": 500,
+              "unit": "mg"
+            }
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "resourceType": "MedicationRequest",
+    "id": "medreq-013-1",
+    "status": "active",
+    "intent": "order",
+    "medicationCodeableConcept": {
+      "coding": [
+        {
+          "system": "http://www.nlm.nih.gov/research/umls/rxnorm",
+          "code": "6835",
+          "display": "Hydrocortisone 1 % Topical Cream"
+        }
+      ],
+      "text": "Hydrocortisone 1% cream"
+    },
+    "subject": {
+      "reference": "Patient/patient-013",
+      "display": "Chloe Anne Peterson"
+    },
+    "encounter": {
+      "reference": "Encounter/encounter-013-1"
+    },
+    "authoredOn": "2024-01-18T15:00:00-05:00",
+    "requester": {
+      "display": "Dr. Lee"
+    },
+    "reasonCode": [
+      {
+        "text": "Treatment of skin inflammation"
+      }
+    ],
+    "dosageInstruction": [
+      {
+        "text": "Apply a thin layer to affected area twice daily.",
+        "timing": {
+          "repeat": {
+            "frequency": 2,
+            "period": 1,
+            "periodUnit": "d"
+          }
+        },
+        "route": {
+          "coding": [
+            {
+              "system": "http://snomed.info/sct",
+              "code": "26643006",
+              "display": "Topical route"
+            }
+          ],
+          "text": "Topical"
+        }
+      }
+    ]
+  },
+  {
+    "resourceType": "MedicationRequest",
+    "id": "medreq-014-1",
+    "status": "active",
+    "intent": "order",
+    "medicationCodeableConcept": {
+      "coding": [
+        {
+          "system": "http://www.nlm.nih.gov/research/umls/rxnorm",
+          "code": "197170",
+          "display": "Tramadol 50 MG Oral Tablet"
+        }
+      ],
+      "text": "Tramadol 50mg"
+    },
+    "subject": {
+      "reference": "Patient/patient-014",
+      "display": "Adebayo Akintola"
+    },
+    "encounter": {
+      "reference": "Encounter/encounter-014-1"
+    },
+    "authoredOn": "2024-01-25T10:00:00-05:00",
+    "requester": {
+      "display": "Dr. Patel"
+    },
+    "reasonCode": [
+      {
+        "text": "Pain relief for respiratory infection"
+      }
+    ],
+    "dosageInstruction": [
+      {
+        "text": "Take one tablet every 4-6 hours as needed for pain.",
+        "timing": {
+          "repeat": {
+            "frequency": 1,
+            "period": 4,
+            "periodUnit": "h"
+          }
+        },
+        "route": {
+          "coding": [
+            {
+              "system": "http://snomed.info/sct",
+              "code": "26643006",
+              "display": "Oral route"
+            }
+          ],
+          "text": "Oral"
+        },
+        "doseAndRate": [
+          {
+            "doseQuantity": {
+              "value": 50,
+              "unit": "mg"
+            }
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "resourceType": "MedicationRequest",
+    "id": "medreq-016-1",
+    "status": "active",
+    "intent": "order",
+    "medicationCodeableConcept": {
+      "coding": [
+        {
+          "system": "http://www.nlm.nih.gov/research/umls/rxnorm",
+          "code": "2160",
+          "display": "Ibuprofen 200 MG Oral Tablet"
+        }
+      ],
+      "text": "Ibuprofen 200mg"
+    },
+    "subject": {
+      "reference": "Patient/patient-016",
+      "display": "Minjun Kim"
+    },
+    "encounter": {
+      "reference": "Encounter/encounter-016-1"
+    },
+    "authoredOn": "2024-02-08T15:30:00-05:00",
+    "requester": {
+      "display": "Dr. Chen"
+    },
+    "reasonCode": [
+      {
+        "text": "Pain relief for knee pain"
+      }
+    ],
+    "dosageInstruction": [
+      {
+        "text": "Take one tablet every 6-8 hours as needed for pain.",
+        "timing": {
+          "repeat": {
+            "frequency": 1,
+            "period": 6,
+            "periodUnit": "h"
+          }
+        },
+        "route": {
+          "coding": [
+            {
+              "system": "http://snomed.info/sct",
+              "code": "26643006",
+              "display": "Oral route"
+            }
+          ],
+          "text": "Oral"
+        },
+        "doseAndRate": [
+          {
+            "doseQuantity": {
+              "value": 200,
+              "unit": "mg"
+            }
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "resourceType": "MedicationRequest",
+    "id": "medreq-017-1",
+    "status": "active",
+    "intent": "order",
+    "medicationCodeableConcept": {
+      "coding": [
+        {
+          "system": "http://www.nlm.nih.gov/research/umls/rxnorm",
+          "code": "10065",
+          "display": "Cetirizine 10 MG Oral Tablet"
+        }
+      ],
+      "text": "Cetirizine 10mg"
+    },
+    "subject": {
+      "reference": "Patient/patient-017",
+      "display": "Grace Lynn Anderson"
+    },
+    "encounter": {
+      "reference": "Encounter/encounter-017-1"
+    },
+    "authoredOn": "2024-02-15T11:00:00-05:00",
+    "requester": {
+      "display": "Dr. Rodriguez"
+    },
+    "reasonCode": [
+      {
+        "text": "Allergy symptom relief"
+      }
+    ],
+    "dosageInstruction": [
+      {
+        "text": "Take one tablet daily as needed.",
+        "timing": {
+          "repeat": {
+            "frequency": 1,
+            "period": 1,
+            "periodUnit": "d"
+          }
+        },
+        "route": {
+          "coding": [
+            {
+              "system": "http://snomed.info/sct",
+              "code": "26643006",
+              "display": "Oral route"
+            }
+          ],
+          "text": "Oral"
+        },
+        "doseAndRate": [
+          {
+            "doseQuantity": {
+              "value": 10,
+              "unit": "mg"
+            }
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "resourceType": "MedicationRequest",
+    "id": "medreq-018-1",
+    "status": "active",
+    "intent": "order",
+    "medicationCodeableConcept": {
+      "coding": [
+        {
+          "system": "http://www.nlm.nih.gov/research/umls/rxnorm",
+          "code": "7370",
+          "display": "Prenatal Vitamin with Iron Oral Tablet"
+        }
+      ],
+      "text": "Prenatal vitamins with iron"
+    },
+    "subject": {
+      "reference": "Patient/patient-018",
+      "display": "Natasha Ivanova"
+    },
+    "encounter": {
+      "reference": "Encounter/encounter-018-1"
+    },
+    "authoredOn": "2024-02-22T14:30:00-05:00",
+    "requester": {
+      "display": "Dr. Kim"
+    },
+    "reasonCode": [
+      {
+        "text": "Prenatal vitamin supplementation"
+      }
+    ],
+    "dosageInstruction": [
+      {
+        "text": "Take one tablet daily.",
+        "timing": {
+          "repeat": {
+            "frequency": 1,
+            "period": 1,
+            "periodUnit": "d"
+          }
+        },
+        "route": {
+          "coding": [
+            {
+              "system": "http://snomed.info/sct",
+              "code": "26643006",
+              "display": "Oral route"
+            }
+          ],
+          "text": "Oral"
+        }
+      }
+    ]
+  },
+  {
+    "resourceType": "MedicationRequest",
+    "id": "medreq-019-1",
+    "status": "active",
+    "intent": "order",
+    "medicationCodeableConcept": {
+      "coding": [
+        {
+          "system": "http://www.nlm.nih.gov/research/umls/rxnorm",
+          "code": "3139",
+          "display": "Sumatriptan 50 MG Oral Tablet"
+        }
+      ],
+      "text": "Sumatriptan 50mg"
+    },
+    "subject": {
+      "reference": "Patient/patient-019",
+      "display": "Patrick O’Connor"
+    },
+    "encounter": {
+      "reference": "Encounter/encounter-019-1"
+    },
+    "authoredOn": "2024-02-29T10:00:00-05:00",
+    "requester": {
+      "display": "Dr. Garcia"
+    },
+    "reasonCode": [
+      {
+        "text": "Treatment of migraine associated with gastrointestinal issues"
+      }
+    ],
+    "dosageInstruction": [
+      {
+        "text": "Take one tablet at the onset of headache. May repeat once if needed after 2 hours.",
+        "timing": {
+          "repeat": {
+            "frequency": 1,
+            "period": 2,
+            "periodUnit": "h"
+          }
+        },
+        "route": {
+          "coding": [
+            {
+              "system": "http://snomed.info/sct",
+              "code": "26643006",
+              "display": "Oral route"
+            }
+          ],
+          "text": "Oral"
+        },
+        "doseAndRate": [
+          {
+            "doseQuantity": {
+              "value": 50,
+              "unit": "mg"
+            }
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "resourceType": "MedicationRequest",
+    "id": "medreq-021-1",
+    "status": "active",
+    "intent": "order",
+    "medicationCodeableConcept": {
+      "coding": [
+        {
+          "system": "http://www.nlm.nih.gov/research/umls/rxnorm",
+          "code": "2160",
+          "display": "Ibuprofen 200 MG Oral Tablet"
+        }
+      ],
+      "text": "Ibuprofen 200mg"
+    },
+    "subject": {
+      "reference": "Patient/patient-021",
+      "display": "Aryan Kumar"
+    },
+    "encounter": {
+      "reference": "Encounter/encounter-021-1"
+    },
+    "authoredOn": "2024-03-14T13:45:00-05:00",
+    "requester": {
+      "display": "Dr. Lee"
+    },
+    "reasonCode": [
+      {
+        "text": "Pain relief for dental pain"
+      }
+    ],
+    "dosageInstruction": [
+      {
+        "text": "Take one tablet every 6-8 hours as needed for pain.",
+        "timing": {
+          "repeat": {
+            "frequency": 1,
+            "period": 6,
+            "periodUnit": "h"
+          }
+        },
+        "route": {
+          "coding": [
+            {
+              "system": "http://snomed.info/sct",
+              "code": "26643006",
+              "display": "Oral route"
+            }
+          ],
+          "text": "Oral"
+        },
+        "doseAndRate": [
+          {
+            "doseQuantity": {
+              "value": 200,
+              "unit": "mg"
+            }
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "resourceType": "MedicationRequest",
+    "id": "medreq-022-1",
+    "status": "active",
+    "intent": "order",
+    "medicationCodeableConcept": {
+      "coding": [
+        {
+          "system": "http://www.nlm.nih.gov/research/umls/rxnorm",
+          "code": "10065",
+          "display": "Cetirizine 10 MG Oral Tablet"
+        }
+      ],
+      "text": "Cetirizine 10mg"
+    },
+    "subject": {
+      "reference": "Patient/patient-022",
+      "display": "Mariana Garcia"
+    },
+    "encounter": {
+      "reference": "Encounter/encounter-022-1"
+    },
+    "authoredOn": "2024-03-21T10:15:00-07:00",
+    "requester": {
+      "display": "Dr. Rodriguez"
+    },
+    "reasonCode": [
+      {
+        "text": "Allergy symptom relief"
+      }
+    ],
+    "dosageInstruction": [
+      {
+        "text": "Take one tablet daily as needed.",
+        "timing": {
+          "repeat": {
+            "frequency": 1,
+            "period": 1,
+            "periodUnit": "d"
+          }
+        },
+        "route": {
+          "coding": [
+            {
+              "system": "http://snomed.info/sct",
+              "code": "26643006",
+              "display": "Oral route"
+            }
+          ],
+          "text": "Oral"
+        },
+        "doseAndRate": [
+          {
+            "doseQuantity": {
+              "value": 10,
+              "unit": "mg"
+            }
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "resourceType": "MedicationRequest",
+    "id": "medreq-023-1",
+    "status": "active",
+    "intent": "order",
+    "medicationCodeableConcept": {
+      "coding": [
+        {
+          "system": "http://www.nlm.nih.gov/research/umls/rxnorm",
+          "code": "197170",
+          "display": "Tramadol 50 MG Oral Tablet"
+        }
+      ],
+      "text": "Tramadol 50mg"
+    },
+    "subject": {
+      "reference": "Patient/patient-023",
+      "display": "Maxim Dubrovsky"
+    },
+    "encounter": {
+      "reference": "Encounter/encounter-023-1"
+    },
+    "authoredOn": "2024-03-28T15:00:00-04:00",
+    "requester": {
+      "display": "Dr. Patel"
+    },
+    "reasonCode": [
+      {
+        "text": "Pain relief for urological pain"
+      }
+    ],
+    "dosageInstruction": [
+      {
+        "text": "Take one tablet every 4-6 hours as needed for pain.",
+        "timing": {
+          "repeat": {
+            "frequency": 1,
+            "period": 4,
+            "periodUnit": "h"
+          }
+        },
+        "route": {
+          "coding": [
+            {
+              "system": "http://snomed.info/sct",
+              "code": "26643006",
+              "display": "Oral route"
+            }
+          ],
+          "text": "Oral"
+        },
+        "doseAndRate": [
+          {
+            "doseQuantity": {
+              "value": 50,
+              "unit": "mg"
+            }
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "resourceType": "MedicationRequest",
+    "id": "medreq-024-1",
+    "status": "active",
+    "intent": "order",
+    "medicationCodeableConcept": {
+      "coding": [
+        {
+          "system": "http://www.nlm.nih.gov/research/umls/rxnorm",
+          "code": "2160",
+          "display": "Ibuprofen 200 MG Oral Tablet"
+        }
+      ],
+      "text": "Ibuprofen 200mg"
+    },
+    "subject": {
+      "reference": "Patient/patient-024",
+      "display": "April Rose Wilson"
+    },
+    "encounter": {
+      "reference": "Encounter/encounter-024-1"
+    },
+    "authoredOn": "2024-04-04T09:45:00-05:00",
+    "requester": {
+      "display": "Dr. Chen"
+    },
+    "reasonCode": [
+      {
+        "text": "Pain relief for post-mammogram discomfort"
+      }
+    ],
+    "dosageInstruction": [
+      {
+        "text": "Take one tablet every 6-8 hours as needed for pain.",
+        "timing": {
+          "repeat": {
+            "frequency": 1,
+            "period": 6,
+            "periodUnit": "h"
+          }
+        },
+        "route": {
+          "coding": [
+            {
+              "system": "http://snomed.info/sct",
+              "code": "26643006",
+              "display": "Oral route"
+            }
+          ],
+          "text": "Oral"
+        },
+        "doseAndRate": [
+          {
+            "doseQuantity": {
+              "value": 200,
+              "unit": "mg"
+            }
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "resourceType": "MedicationRequest",
+    "id": "medreq-026-1",
+    "status": "active",
+    "intent": "order",
+    "medicationCodeableConcept": {
+      "coding": [
+        {
+          "system": "http://www.nlm.nih.gov/research/umls/rxnorm",
+          "code": "197170",
+          "display": "Tramadol 50 MG Oral Tablet"
+        }
+      ],
+      "text": "Tramadol 50mg"
+    },
+    "subject": {
+      "reference": "Patient/patient-026",
+      "display": "Evelyn Taylor"
+    },
+    "encounter": {
+      "reference": "Encounter/encounter-026-1"
+    },
+    "authoredOn": "2024-04-18T13:30:00-06:00",
+    "requester": {
+      "display": "Dr. Patel"
+    },
+    "reasonCode": [
+      {
+        "text": "Pain relief for physical therapy"
+      }
+    ],
+    "dosageInstruction": [
+      {
+        "text": "Take one tablet every 4-6 hours as needed for pain.",
+        "timing": {
+          "repeat": {
+            "frequency": 1,
+            "period": 4,
+            "periodUnit": "h"
+          }
+        },
+        "route": {
+          "coding": [
+            {
+              "system": "http://snomed.info/sct",
+              "code": "26643006",
+              "display": "Oral route"
+            }
+          ],
+          "text": "Oral"
+        },
+        "doseAndRate": [
+          {
+            "doseQuantity": {
+              "value": 50,
+              "unit": "mg"
+            }
+          }
+        ]
+      }
+    ]
+  }
+]
