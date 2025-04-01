@@ -1,5 +1,12 @@
 import json
-from difflib import SequenceMatcher
+import requests
+import logging
+from typing import Optional
+
+# Set up logging
+logging.basicConfig(level=logging.INFO)
+logger = logging.getLogger(__name__)
+
 
 # ------------------------------------------------------------------------------
 # Data Loading Functions
@@ -50,88 +57,41 @@ def load_medication_requests_fhir(file: str) -> list[dict]:
         return json.load(f)
 
 
-# ------------------------------------------------------------------------------
-# Query Functions
-# ------------------------------------------------------------------------------
-
-def query_patient_by_name_and_dob(query_name: str, dob: str, patients: list[dict], threshold: float = 0.7) -> list[dict]:
-    """Query patients by name and date of birth using fuzzy matching.
-
+def push_to_fhir_stream(resource: dict) -> None:
+    """Push a FHIR resource to the FHIR stream.
+    
     Args:
-        query_name: The patient name to search for (can be partial or full).
-        dob: The birthDate to match (formatted as 'YYYY-MM-DD').
-        patients: A list of Patient resources (dictionaries).
-        threshold: The minimum similarity ratio required for a match (default is 0.7).
-    
-    Returns:
-        A list of Patient resources that match the query.
+        resource: A dictionary representing a FHIR resource.
     """
-    matches = []
     
-    for patient in patients:
-        # Skip if birth date doesn't match
-        if patient.get('birthDate') != dob:
-            continue
-            
-        # Get first name entry and extract given and family names
-        if patient.get('name') and len(patient['name']) > 0:
-            name_obj = patient['name'][0]
-            given_names = ' '.join(name_obj.get('given', []))
-            family_name = name_obj.get('family', '')
-            full_name = f"{given_names} {family_name}".strip()
-            
-            # Calculate similarity ratio
-            similarity = SequenceMatcher(None, query_name.lower(), full_name.lower()).ratio()
-            
-            # Add to matches if above threshold
-            if similarity >= threshold:
-                matches.append(patient)
-                
-    return matches
-
-
-def get_patient_encounters_and_med_requests_by_id(patient_id: str, encounters: list[dict], med_requests: list[dict]) -> tuple[list[dict], list[dict]]:
-    """Retrieve patient encounters and associated medication requests by patient id.
-
-    Args:
-        patient_id: The unique identifier of the patient.
-        encounters: A list of Encounter resources (dictionaries).
-        med_requests: A list of MedicationRequest resources (dictionaries).
+    # Example FHIR server endpoint - in a real application, this would be configurable
+    FHIR_SERVER_URL = "https://hapi.fhir.org/baseR4"
     
-    Returns:
-        A tuple containing:
-          - A list of Encounter resources for the patient.
-          - A list of MedicationRequest resources associated with the patient's encounters.
-    """
-    patient_reference = f"Patient/{patient_id}"
+    # Check if the resource has a valid type
+    if not resource or "resourceType" not in resource:
+        logger.error("Invalid FHIR resource: missing resourceType")
+        raise ValueError("Invalid FHIR resource: missing resourceType")
     
-    # Filter encounters for this patient
-    patient_encounters = [
-        encounter for encounter in encounters
-        if encounter.get('subject', {}).get('reference') == patient_reference
-    ]
+    resource_type = resource["resourceType"]
+    resource_id = resource.get("id")
     
-    # Get encounter IDs
-    encounter_ids = [encounter['id'] for encounter in patient_encounters]
+    # Determine the endpoint URL based on resource type
+    endpoint = f"{FHIR_SERVER_URL}/{resource_type}"
+    if resource_id:
+        endpoint = f"{endpoint}/{resource_id}"
     
-    # Filter medication requests associated with these encounters
-    patient_med_requests = [
-        request for request in med_requests
-        if request.get('encounter', {}).get('reference', '').split('/')[1] in encounter_ids
-    ]
+    try:
+        
+        response = requests.post(
+            endpoint,
+            json=resource,
+            headers={"Content-Type": "application/fhir+json"}
+        )
     
-    return patient_encounters, patient_med_requests
-
-
-def get_all_encounters(encounters: list[dict]) -> list[dict]:
-    """Retrieve all Encounter resources.
-
-    This function mimics a GET list endpoint for encounters.
-
-    Args:
-        encounters: A list of Encounter resources (dictionaries).
-    
-    Returns:
-        A list of all Encounter resources.
-    """
-    return encounters
+        # Check if the request was successful
+        response.raise_for_status()
+        logger.info(f"Successfully pushed {resource_type} to FHIR server: {response.status_code}")
+        return response.json()
+    except requests.exceptions.RequestException as e:
+        logger.error(f"Failed to push to FHIR server: {str(e)}")
+        raise

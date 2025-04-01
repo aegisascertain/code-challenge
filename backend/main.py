@@ -1,6 +1,6 @@
 import os
-from typing import Dict, List, Optional
-from fastapi import FastAPI, Query, HTTPException
+from datetime import date
+from fastapi import FastAPI, HTTPException
 from pydantic import BaseModel
 import uvicorn
 from fastapi.middleware.cors import CORSMiddleware
@@ -9,9 +9,7 @@ from fhir_utils import (
     load_patients_fhir,
     load_encounters_fhir,
     load_medication_requests_fhir,
-    query_patient_by_name_and_dob,
-    get_patient_encounters_and_med_requests_by_id,
-    get_all_encounters
+    push_to_fhir_stream
 )
 
 # Initialize FastAPI
@@ -46,66 +44,20 @@ med_requests = load_medication_requests_fhir(MEDICATION_REQUESTS_FILE)
 class Patient(BaseModel):
     resourceType: str
     id: str
-    name: List[Dict]
-    birthDate: str
+    full_name: str
+    birth_date: date
 
-
-class Encounter(BaseModel):
-    resourceType: str
-    id: str
-    status: str
-    subject: Dict
-    description: str
-
-
-class MedicationRequest(BaseModel):
-    resourceType: str
-    id: str
-    encounter: Dict
-    dosageInstruction: List[Dict]
-
-
-class PatientResponse(BaseModel):
-    patients: List[Patient]
-
-
-class EncounterResponse(BaseModel):
-    encounters: List[Encounter]
-
-
-class MedicationRequestResponse(BaseModel):
-    medicationRequests: List[MedicationRequest]
-
-
-class PatientDetailsResponse(BaseModel):
-    patient: Patient
-    encounters: List[Encounter]
-    medicationRequests: List[MedicationRequest]
-
+# Define model for FHIR resource submission
+class FHIRResource(BaseModel):
+    resource: dict
 
 @app.get("/", tags=["Root"])
 async def root():
     return {"message": "Welcome to the FHIR API"}
 
 
-@app.get("/patients/", response_model=PatientResponse, tags=["Patients"])
-async def search_patients(
-    name: str = Query(None, description="Patient name (full or partial)"),
-    birthDate: str = Query(None, description="Patient birth date (YYYY-MM-DD)"),
-    threshold: float = Query(0.7, description="Minimum similarity threshold for name matching")
-):
-    """
-    Search for patients by name and birth date using fuzzy matching.
-    """
-    if not name or not birthDate:
-        raise HTTPException(status_code=400, detail="Both name and birthDate parameters are required")
-    
-    results = query_patient_by_name_and_dob(name, birthDate, patients, threshold)
-    return {"patients": results}
-
-
-@app.get("/patients/{patient_id}", response_model=PatientDetailsResponse, tags=["Patients"])
-async def get_patient_details(patient_id: str):
+@app.get("/patients/{patient_id}", response_model=Patient, tags=["Patients"])
+async def get_patient_details(patient_id: str) -> Patient | None:
     """
     Get a patient's details including encounters and medication requests.
     """
@@ -114,26 +66,65 @@ async def get_patient_details(patient_id: str):
     if not patient:
         raise HTTPException(status_code=404, detail=f"Patient with ID {patient_id} not found")
     
-    # Get encounters and medication requests
-    patient_encounters, patient_med_requests = get_patient_encounters_and_med_requests_by_id(
-        patient_id, encounters, med_requests
-    )
+    full_name = ""
+    if patient.get("name") and len(patient["name"]) > 0:
+        name_obj = patient["name"][0]
+        given_names = " ".join(name_obj.get("given", []))
+        family_name = name_obj.get("family", "")
+        full_name = f"{given_names} {family_name}".strip()
+        
+        # Transform to match Patient model
+        mapped_patient = {
+            "resourceType": patient.get("resourceType", ""),
+            "id": patient.get("id", ""),
+            "full_name": full_name,
+            "birth_date": patient.get("birthDate", "")
+        }
+        return mapped_patient
     
-    return {
-        "patient": patient,
-        "encounters": patient_encounters,
-        "medicationRequests": patient_med_requests
-    }
+    
 
-
-@app.get("/encounters/", response_model=EncounterResponse, tags=["Encounters"])
-async def list_encounters():
+@app.get("/patients/", response_model=list[Patient], tags=["Patients"])
+async def list_patients() -> list[Patient]:
     """
-    Get all encounters.
+    Get all patients.
     """
-    all_encounters = get_all_encounters(encounters)
-    return {"encounters": all_encounters}
+    
+    mapped_patients = []
+    for p in patients:
+        # Extract full name from name array (family name + given names)
+        full_name = ""
+        if p.get("name") and len(p["name"]) > 0:
+            name_obj = p["name"][0]
+            given_names = " ".join(name_obj.get("given", []))
+            family_name = name_obj.get("family", "")
+            full_name = f"{given_names} {family_name}".strip()
+        
+        # Transform to match Patient model
+        mapped_patient = {
+            "resourceType": p.get("resourceType", ""),
+            "id": p.get("id", ""),
+            "full_name": full_name,
+            "birth_date": p.get("birthDate", "")
+        }
+        mapped_patients.append(mapped_patient)
+    
+    return mapped_patients
 
+@app.post("/fhir/push", tags=["FHIR Operations"])
+async def push_patient_to_fhir(resource: FHIRResource):
+    """
+    Push a patient record to the FHIR server.
+    
+    This endpoint accepts a FHIR resource and pushes it to the configured FHIR server.
+    """
+    try:
+        result = push_to_fhir_stream(resource.resource)
+        return {"status": "success", "message": "Resource pushed to FHIR server", "result": result}
+    except ValueError as e:
+        raise HTTPException(status_code=400, detail=str(e))
+    except Exception as e:
+        raise HTTPException(status_code=500, detail=f"Failed to push to FHIR server: {str(e)}")
 
 if __name__ == "__main__":
     uvicorn.run("main:app", host="0.0.0.0", port=8000, reload=True) 
