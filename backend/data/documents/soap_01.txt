@@ -1,0 +1,38 @@
+SOAP Note - Encounter Date: 2023-10-26
+Patient: patient--001
+
+S: Pt presents today for annual physical check-up. No chief complaints. Reports generally good health, denies chest pain, SOB, HA, dizziness. Family hx of elevated cholesterol (dad), no significant personal PMH issues reported. States routine exercise (~2x/wk), balanced diet but with occasional fast-food. Denies tobacco use, reports occasional ETOH socially.
+
+O:
+Vitals:
+
+BP: 128/82 mmHg
+HR: 72 bpm, regular
+RR: 16 breaths/min
+Temp: 98.2°F oral
+Ht: 5'10", Wt: 192 lbs, BMI: 27.5 (overweight)
+General appearance: Alert, NAD, pleasant and cooperative.
+Skin: Clear, normal moisture/turgor
+HEENT: PERRLA, EOMI, no scleral icterus. Oral mucosa moist, throat clear, no erythema
+CV: Regular rate & rhythm, no murmurs, rubs or gallops
+Lungs: CTA bilaterally, no wheezing or crackles
+ABD: Soft, NT/ND, bowel sounds normal
+Neuro: CN II-XII intact, normal strength & sensation bilat
+EXT: No edema, pulses +2 bilaterally
+Labs ordered: CBC, CMP, Lipid panel
+
+A:
+
+Adult annual health exam, generally healthy
+Possible overweight (BMI 27.5), recommend lifestyle modifications
+Family hx of hyperlipidemia, screening initiated
+P:
+
+Advised pt on healthier diet, increasing weekly exercise frequency to at least 3-4 times/week
+Scheduled follow-up visit to review lab results and cholesterol levels in approx. 5 months
+Routine annual influenza vaccine administered today - tolerated well
+No Rx prescribed at this visit.
+
+Signed:
+Dr. Mark Reynolds, MD
+Internal Medicine

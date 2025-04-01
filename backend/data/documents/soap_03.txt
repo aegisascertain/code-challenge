@@ -1,0 +1,24 @@
+SOAP Note – Encounter Date: 2023-11-23
+Patient: patient--005
+
+S: Pt in today for scheduled flu shot, no acute complaints. Reports good overall health recently, denies fever, chills, cough, SOB, fatigue, or muscle aches. No hx. allergic reactions to vaccines.
+
+O:
+Vitals stable, afebrile.
+General appearance good, alert, cooperative.
+CV/RESP: Clear, normal heart sounds, lungs CTA
+HEENT/Neuro: Unremarkable exam today, no acute symptoms.
+
+A:
+
+Influenza immunization, routine visit, well pt
+P:
+
+Admin flu vaccine IM (left deltoid), well tolerated. No immediate adverse reactions.
+Instructed on possible mild sx post-vaccine (soreness, mild fever), offered supportive tx measures if symptoms appear.
+RTC PRN or annual checkup as scheduled.
+No Rx necessary today.
+
+Signed:
+Dr. Anna Lee, MD
+Family Medicine

@@ -5,7 +5,7 @@ from pydantic import BaseModel
 import uvicorn
 from fastapi.middleware.cors import CORSMiddleware
 
-from fhir_utils import (
+from utils.fhir_utils import (
     load_patients_fhir,
     load_encounters_fhir,
     load_medication_requests_fhir,
