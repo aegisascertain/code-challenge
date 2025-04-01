@@ -4,7 +4,7 @@ This backend service provides a FastAPI application that allows querying FHIR he
 
 ## Requirements
 
-- Python 3.8+
+- Python 3.11+
 - Poetry (for dependency management)
 
 ## Setup
